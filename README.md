@@ -86,13 +86,15 @@ http://localhost:8000
 ### Example Output Screenshots
 
 **Image Upload:**
-![Image Upload](assets/image_result.png)
+<img width="1913" height="968" alt="image_result" src="https://github.com/user-attachments/assets/3c3580f4-72d0-49c5-8d94-5f139a12bb47" />
+
 
 **Audio Upload:**
-![Audio Upload](assets/audio_result.png)
+<img width="1918" height="977" alt="audio_result" src="https://github.com/user-attachments/assets/25516e2d-38bc-4d8b-8cba-2242fdf6c43a" />
+
 
 **Video Upload:**
-![Video Upload](assets/video_result.png)
+<img width="1919" height="972" alt="video_result" src="https://github.com/user-attachments/assets/cc85e0f2-f245-4ef7-91e4-a635e8e6ed67" />
 
 ## Project Structure
 
