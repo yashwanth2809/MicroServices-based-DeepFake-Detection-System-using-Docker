@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Deepfake Detection System</title>
+  <!-- tsParticles for snowfall effect -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="/static/style.css" />
+  <style>
+    /* Snow overlay sits above UI but is click-through */
+    #snow-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <!-- Particle overlay -->
+  <div id="snow-overlay"></div>
+
+  <div class="container">
+    <h1>Deepfake Detection System</h1>
+    <!-- Welcome message -->
+    <p class="welcome">
+      Welcome! Upload any file below to check for deepfake content.
+    </p>
+
+    <form id="uploadForm">
+      <!-- File-input wrapper for larger box -->
+      <div class="file-input-wrapper">
+        <input type="file" id="fileInput" accept="video/*,image/*" />
+      </div>
+      <button type="submit">Analyze</button>
+    </form>
+
+    <div id="result" class="result-box"></div>
+  </div>
+
+  <!-- Main JS -->
+  <script src="/static/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Upload File</h2>
+  <p>Logged in as {{user}}</p>
+  <form method="post" enctype="multipart/form-data">
+    <input type="file" name="file" required>
+    <button>Submit</button>
+  </form>
+
+  {% if result %}
+    {% if result.filetype == "no_face" %}
+      <p style="color:red">{{result.detail}}</p>
+    {% else %}
+      <h3>Result</h3>
+      <p>Type: {{result.filetype}}</p>
+      <p>Prediction: {{result.predicted_class}}</p>
+      <p>Confidence: {{'%.2f'|format(result.confidence)}}</p>
+    {% endif %}
+  {% endif %}
+{% endblock %}

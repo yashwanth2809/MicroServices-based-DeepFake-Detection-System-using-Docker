@@ -1,0 +1,56 @@
+services:
+  face_detection_service:
+    build:
+      context: ./face_detection_service
+    container_name: face_detection_service
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./frontend:/app/frontend
+      - ./face_detection_service/uploads:/app/uploads
+      #- ./face_detection_service/frontend:/app/frontend
+      - ./shared/models/WIDERFace_DSFD_RES152.pth:/app/models/hub/checkpoints/WIDERFace_DSFD_RES152.pth:ro
+      - ./shared/models:/app/models
+    depends_on:
+      - image_service
+      - video_service
+      - audio_service
+    networks:
+      - df_net
+
+  image_service:
+    image: image_service
+    build:
+      context: ./image_service
+      dockerfile: Dockerfile
+    container_name: image_service
+    ports:
+      - "8001:8001"
+    networks:
+      - df_net
+
+  video_service:
+    image: video_service
+    build:
+      context: ./video_service
+      dockerfile: Dockerfile
+    container_name: video_service
+    ports:
+      - "8002:8002"
+    networks:
+      - df_net
+
+  audio_service:
+    image: audio_service
+    build:
+      context: ./audio_service
+      dockerfile: Dockerfile
+    container_name: audio_service
+    ports:
+      - "8003:8003"
+    networks:
+      - df_net
+
+networks:
+  df_net:
+    driver: bridge
